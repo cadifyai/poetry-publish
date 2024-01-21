@@ -1,9 +1,8 @@
 # poetry-publish
 
-Opinionated GitHub action to fully automate publishing packages to PyPI - using Poetry and GitHub releases.
+Fully automate publishing packages to PyPI - using Poetry and GitHub releases.
 
-We published this action because we use it in our projects and thought it would be useful to others as well. This action is **open to any kind of
-collaboration and contribution** - We're happy to receive feedback, issues, pull requests or just kudos.
+We published this action because we use it in our projects and thought it would be useful to others as well. This action is **open to any kind of collaboration and contribution** - We're happy to receive feedback, issues, pull requests or just kudos.
 
 ## Features
 
@@ -57,7 +56,7 @@ jobs:
       contents: write
     steps:
       - name: Publish PyPi package
-        uses: code-specialist/pypi-poetry-publish@v1
+        uses: cadifyai/poetry-publish
         with:
           ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_REGISTRY_PASSWORD: ${{ secrets.PYPI_TOKEN }}
@@ -174,7 +173,7 @@ jobs:
       contents: write
     steps:
       - name: Publish PyPi package
-        uses: code-specialist/pypi-poetry-publish@v1
+        uses: cadifyai/poetry-publish
         with:
           PACKAGE_DIRECTORY: "./example-package/"
           PYTHON_VERSION: "3.10"
@@ -201,7 +200,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Publish PyPi package
-        uses: code-specialist/pypi-poetry-publish@v1
+        uses: cadifyai/poetry-publish
         with:
           PACKAGE_DIRECTORY: "./example-package/"
           PYTHON_VERSION: "3.10"
@@ -230,7 +229,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Publish PyPI package
-        uses: code-specialist/pypi-poetry-publish@v1
+        uses: cadifyai/poetry-publish
         with:
           PACKAGE_DIRECTORY: "./example-package/"
           PYTHON_VERSION: "3.10"
@@ -262,7 +261,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Publish PyPI package
-      uses: code-specialist/pypi-poetry-publish@v1
+      uses: cadifyai/poetry-publish
       with:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         PUBLISH_REGISTRY_USER: ${{ secrets.PUBLISH_REGISTRY_USER }}

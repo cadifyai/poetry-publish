@@ -56,7 +56,7 @@ jobs:
       contents: write
     steps:
       - name: Publish PyPi package
-        uses: cadifyai/poetry-publish
+        uses: cadifyai/poetry-publish@v0.1.0
         with:
           ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_REGISTRY_PASSWORD: ${{ secrets.PYPI_TOKEN }}
@@ -173,7 +173,7 @@ jobs:
       contents: write
     steps:
       - name: Publish PyPi package
-        uses: cadifyai/poetry-publish
+        uses: cadifyai/poetry-publish@v0.1.0
         with:
           PACKAGE_DIRECTORY: "./example-package/"
           PYTHON_VERSION: "3.10"
@@ -200,7 +200,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Publish PyPi package
-        uses: cadifyai/poetry-publish
+        uses: cadifyai/poetry-publish@v0.1.0
         with:
           PACKAGE_DIRECTORY: "./example-package/"
           PYTHON_VERSION: "3.10"
@@ -229,7 +229,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Publish PyPI package
-        uses: cadifyai/poetry-publish
+        uses: cadifyai/poetry-publish@v0.1.0
         with:
           PACKAGE_DIRECTORY: "./example-package/"
           PYTHON_VERSION: "3.10"
@@ -261,7 +261,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Publish PyPI package
-      uses: cadifyai/poetry-publish
+      uses: cadifyai/poetry-publish@v0.1.0
       with:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         PUBLISH_REGISTRY_USER: ${{ secrets.PUBLISH_REGISTRY_USER }}

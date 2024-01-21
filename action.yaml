@@ -26,15 +26,15 @@ inputs:
   POETRY_VERSION:
     description: "The version of Poetry to use"
     required: false
-    default: ""
+    default: "1.7.1"
   POETRY_CORE_VERSION:
     description: "The version of Poetry Core to use"
     required: false
-    default: ""
+    default: "1.8.1"
   BRANCH:
     description: "Branch to publish from"
     required: false
-    default: "master"
+    default: "main"
   POETRY_DEPENDENCY_REGISTRY_URL:
     description: "Allows to define a custom registry to be used by Poetry for dependency installation"
     required: false
@@ -85,8 +85,8 @@ runs:
     - name: Add and Commit Version
       run: |
         git add ${{ inputs.PACKAGE_DIRECTORY }}__init__.py ./pyproject.toml
-        git config --global user.name "PyPI Poetry Publish Bot"
-        git config --global user.email "admin@code-specialist.com"
+        git config --global user.name "Poetry Publish Bot"
+        git config --global user.email "38025909+siliconlad@users.noreply.github.com"
         git commit -m "Change version to ${{ github.event.release.tag_name }}" --allow-empty
         git push origin HEAD:${{ inputs.BRANCH }}
       shell: bash
@@ -107,6 +107,6 @@ runs:
 
     - name: Build and Publish
       run: |
-        poetry config repositories.publish ${{ inputs.PUBLISH_REGISTRY }}    
+        poetry config repositories.publish ${{ inputs.PUBLISH_REGISTRY }}
         poetry publish -p ${{ inputs.PUBLISH_REGISTRY_PASSWORD }} -u ${{ inputs.PUBLISH_REGISTRY_USERNAME }} -r publish --build
       shell: bash

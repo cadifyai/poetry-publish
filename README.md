@@ -77,7 +77,7 @@ jobs:
 
 **./pyproject.toml**
 
-```toml 
+```toml
 [tool.poetry]
 name = "code-specialist-example-package"
 version = "0.1.0"
@@ -102,7 +102,7 @@ The action will alter the content of your repository to avoid conflicts and vers
 
 **pyproject.toml**
 
-```toml 
+```toml
 [tool.poetry]
 name = "code-specialist-example-package"
 version = "1.0.0" # adjusted to 1.0.0
@@ -130,10 +130,10 @@ __version__ = "1.0.0"  # adjusted to 1.0.0
 | `PUBLISH_REGISTRY_PASSWORD`           | Either a password for the registry user or a token in combination with `__token__` as the `PUBLISH_REGISTRY_USERNAME`               | ✓         |                            |
 | `PUBLISH_REGISTRY_USERNAME`           | The username for the pypi registry                                                                                                  |           | `__token__`                |
 | `PACKAGE_DIRECTORY`                   | The directory the package is located in e.g. `./src/`, `./example_package`                                                          |           | './'                       |
-| `POETRY_VERSION`                      | The Poetry version to perform the build with                                                                                        |           | `1.1.8`                    |   
-| `POETRY_CORE_VERSION`                 | The Poetry Code version to perform the build with                                                                                   |           | `1.0.4`                    |   
-| `PYTHON_VERSION`                      | The Python version to perform the build with                                                                                        |           | `3.10`                     |   
-| `BRANCH`                              | The branch to publish from                                                                                                          |           | `master`                   |
+| `POETRY_VERSION`                      | The Poetry version to perform the build with                                                                                        |           | `1.7.1`                    |
+| `POETRY_CORE_VERSION`                 | The Poetry Code version to perform the build with                                                                                   |           | `1.8.1`                    |
+| `PYTHON_VERSION`                      | The Python version to perform the build with                                                                                        |           | `3.10`                     |
+| `BRANCH`                              | The branch to publish from                                                                                                          |           | `main`                   |
 | `PUBLISH_REGISTRY`                    | The registry to publish to e.g.`https://test.pypi.org/simple/`                                                                      |           | `https://pypi.org/simple/` |
 | `POETRY_DEPENDENCY_REGISTRY_URL`      | Allows to define a custom registry to be used by Poetry for dependency installation e.g. `https://pypi.code-specialist.com/simple/` |           |                            |
 | `POETRY_DEPENDENCY_REGISTRY_NAME`     | The name used for the custom registry in the dependencies. Must match the name in the `pyproject.toml`                              | (✓)       |                            |
@@ -187,7 +187,7 @@ jobs:
 - Requires GitHub secrets:
     - `PUBLISH_REGISTRY_PASSWORD` with a valid token
     - `ACCESS_TOKEN` access token with write access to the GitHub repository
-  
+
 **publish.yaml**
 ```yaml
 name: Build and publish python package
@@ -271,10 +271,10 @@ jobs:
         POETRY_DEPENDENCY_REGISTRY_URL: "https://pypi.code-specialist.com"
         POETRY_DEPENDENCY_REGISTRY_NAME: "codespecialist"
         POETRY_DEPENDENCY_REGISTRY_USERNAME: ${{ secrets.CUSTOM_PUBLISH_REGISTRY_USERNAME }}
-        POETRY_DEPENDENCY_REGISTRY_PASSWORD: ${{ secrets.CUSTOM_PUBLISH_REGISTRY_PASSWORD }}									
+        POETRY_DEPENDENCY_REGISTRY_PASSWORD: ${{ secrets.CUSTOM_PUBLISH_REGISTRY_PASSWORD }}
 ```
 
-For this to install the dependency `private-code-specialist-example-package` from `https://pypi.code-specialist.com/simple/`, the corresponding `pyproject.toml` would look like 
+For this to install the dependency `private-code-specialist-example-package` from `https://pypi.code-specialist.com/simple/`, the corresponding `pyproject.toml` would look like
 this:
 
 ```toml
@@ -293,4 +293,3 @@ url = "https://pypi.code-specialist.com"
 python = "^3.10"
 private-code-specialist-example-package = {version = "^1.0.0", source = "codespecialist"}
 ```
-

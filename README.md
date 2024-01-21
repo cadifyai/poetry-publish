@@ -1,4 +1,4 @@
-# pypi-poetry-publish
+# poetry-publish
 
 Opinionated GitHub action to fully automate publishing packages to PyPI - using Poetry and GitHub releases.
 
